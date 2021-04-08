@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mono ./../tool/Confuser.CLI.exe -o . '$(MSBuildProjectDirectory)/$(OutDir)configuration.dll' '$(MSBuildProjectDirectory)/confuserex.crproj'" WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+
+
+</Project>
